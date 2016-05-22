@@ -58,12 +58,17 @@ angular.module('SingleplayerModule', [ 'AppModule' ])
 				}
 			}
 		}
+		console.log('current line....:' + $scope.currentLine);
 		if(send){
-			$scope.game.guess[$scope.currentLine].disable = true;
-			if($scope.currentLine <= 9){
+			if($scope.game.guess[$scope.currentLine] != undefined){
+				$scope.game.guess[$scope.currentLine].disable = true;
+			}
+			if($scope.currentLine <=9){
 				$scope.game.guess[++$scope.currentLine].disable = false;
 			}
-			console.log('call RESTFULL');
+			if(send && $scope.game.guess[$scope.currentLine] != undefined){
+				console.log('call RESTFULL');
+			}
 		}
 	}
 
@@ -75,6 +80,7 @@ angular.module('SingleplayerModule', [ 'AppModule' ])
 		var css = '';
 		css = $scope.game.guess[line].column[column].button;
 		$scope.currentLine = line;
+		console.log('set line atual: ' + $scope.currentLine);
 		return css;
 	}
 
