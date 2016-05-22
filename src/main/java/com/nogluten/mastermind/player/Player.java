@@ -1,13 +1,17 @@
 package com.nogluten.mastermind.player;
 
+import java.util.Calendar;
+
 import com.nogluten.mastermind.color.COLORS;
 import com.nogluten.mastermind.game.Game;
 
 public class Player {
 	
-	private Long id;
+	private String sessionId;
 	
 	private COLORS[] code;
+	
+	private Calendar dateCreated;
 	
 	private String name;
 	
@@ -19,9 +23,10 @@ public class Player {
 	
 	private Game game;
 	
-	public Player(Long id, COLORS[] code) {
-		this.id = id;
+	public Player(String sessionId, COLORS[] code) {
+		this.sessionId = sessionId;
 		this.code = code;
+		this.dateCreated = Calendar.getInstance();
 	}
 	
 	public String getName() {
@@ -48,10 +53,14 @@ public class Player {
 		this.age = age;
 	}
 
-	public Long getId() {
-		return id;
+	public String getSessionId() {
+		return sessionId;
 	}
-
+	
+	public Calendar getDateCreated() {
+		return dateCreated;
+	}
+	
 	public int getNumberTry() {
 		return numberTry;
 	}

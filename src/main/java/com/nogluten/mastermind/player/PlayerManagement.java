@@ -7,7 +7,7 @@ import com.nogluten.mastermind.MasterMindCore;
 
 public class PlayerManagement {
 	
-	private static final Map<Long, Player> USER_CACHE = new HashMap<>();
+	private static final Map<String, Player> USER_CACHE = new HashMap<>();
 	
 	private static PlayerManagement instance;
 	
@@ -20,10 +20,9 @@ public class PlayerManagement {
 		return instance;
 	}
 	
-	public synchronized Player createNewUser(){
-		Long timeNowIdUser = System.currentTimeMillis();
-		Player user = new Player(timeNowIdUser, MasterMindCore.createRandomCode());
-		USER_CACHE.put(user.getId(), user);
+	public synchronized Player createNewUser(String sessionId){
+		Player user = new Player(sessionId, MasterMindCore.createRandomCode());
+		USER_CACHE.put(user.getSessionId(), user);
 		return user;
 	}
 	

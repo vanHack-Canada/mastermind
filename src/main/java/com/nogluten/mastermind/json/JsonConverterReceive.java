@@ -5,12 +5,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.nogluten.mastermind.RulesConstants;
 import com.nogluten.mastermind.color.COLORS;
+import com.nogluten.mastermind.game.GameMode;
 
 public class JsonConverterReceive {
 	
 	private JsonObject jsonObject;
 	
 	private String sessionId;
+	
+	private GameMode gameMode;
 	
 	private COLORS[] guess;
 	
@@ -19,8 +22,13 @@ public class JsonConverterReceive {
 		this.jsonObject = jsonParser.parse(json).getAsJsonObject();
 		this.sessionId = this.converteSessionId();
 		this.guess = this.converteGuess();
+		this.gameMode = this.converteGameMode();
 	}
 	
+	private GameMode converteGameMode() {
+		return GameMode.valueOf(jsonObject.get("gameMode").getAsString());
+	}
+
 	private String converteSessionId(){
 		return jsonObject.get("sessionId").getAsString();
 	}
@@ -42,4 +50,7 @@ public class JsonConverterReceive {
 		return guess;
 	}
 	
+	public GameMode getGameMode() {
+		return gameMode;
+	}
 }
