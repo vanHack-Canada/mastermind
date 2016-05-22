@@ -20,6 +20,7 @@ angular
 							$cookieStore.put('userId', $scope.getSessionId());
 							$scope.userId = $cookieStore.get('userId');
 							$scope.colors = [ {} ];
+							
 
 						} ])
 

@@ -5,8 +5,9 @@
 <div class="row">
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<center>
-			<table id="tblOptions" cellspacing="5px">
+			<table cellspacing="5px">
 				<tr ng-repeat="color in colors">
+					<td><button type="button" style="height: 30px; width: 50px;" ng-hide="true"></button></td>
 					<td><button type="button" class="{{color.blue}}" style="height: 30px; width: 50px;" ng-click="infoColorActual(color.blue)"></button></td>
 					<td><button type="button" class="{{color.green}}" style="height: 30px; width: 50px;" ng-click="infoColorActual(color.green)"></button></td>
 					<td><button type="button" class="{{color.yellow}}" style="height: 30px; width: 50px;" ng-click="infoColorActual(color.yellow)"></button></td>
@@ -16,6 +17,29 @@
 					<td><button type="button" class="{{color.orange}}" style="height: 30px; width: 50px;" ng-click="infoColorActual(color.orange)"></button></td>
 					<td><button type="button" class="{{color.pink}}" style="height: 30px; width: 50px;" ng-click="infoColorActual(color.pink)"></button></td>
 				</tr>
+			</table>
+		</center>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<center>
+			<table cellspacing="5px">
+			 	<tr ng-repeat="(key, value) in game.guess">
+					<td><h4>{{key + 1}}</h4></td>
+					<td><button type="button" ng-class="getColor(key, 0)" style="height: 30px; width: 50px;" ng-click="getColorActual(key, 0)" ng-disabled="isDisabled(key)"></button></td>
+					<td><button type="button" ng-class="getColor(key, 1)" style="height: 30px; width: 50px;" ng-click="getColorActual(key, 1)" ng-disabled="isDisabled(key)"></button></td>
+					<td><button type="button" ng-class="getColor(key, 2)" style="height: 30px; width: 50px;" ng-click="getColorActual(key, 2)" ng-disabled="isDisabled(key)"></button></td>
+					<td><button type="button" ng-class="getColor(key, 3)" style="height: 30px; width: 50px;" ng-click="getColorActual(key, 3)" ng-disabled="isDisabled(key)"></button></td>
+					<td><button type="button" ng-class="getColor(key, 4)" style="height: 30px; width: 50px;" ng-click="getColorActual(key, 4)" ng-disabled="isDisabled(key)"></button></td>
+					<td><button type="button" ng-class="getColor(key, 5)" style="height: 30px; width: 50px;" ng-click="getColorActual(key, 5)" ng-disabled="isDisabled(key)"></button></td>
+					<td><button type="button" ng-class="getColor(key, 6)" style="height: 30px; width: 50px;" ng-click="getColorActual(key, 6)" ng-disabled="isDisabled(key)"></button></td>
+					<td><button type="button" ng-class="getColor(key, 7)" style="height: 30px; width: 50px;" ng-click="getColorActual(key, 7)" ng-disabled="isDisabled(key)"></button></td>
+				</tr>
+				<button type="button" class="btn btn-primary btn-block" ng-click="send()" style="width:460px;">
+					<span class="glyphicon glyphicon-send"></span> SEND
+				</button>
 			</table>
 		</center>
 	</div>
