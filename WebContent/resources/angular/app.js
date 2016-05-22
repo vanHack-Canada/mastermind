@@ -1,14 +1,17 @@
-angular.module('AppModule', [ 'ngRoute' ])
+angular.module('AppModule', [ 'ngRoute', 'SingleplayerModule' ])
 
 .controller('AppController',
 		[ '$scope', '$location', function($scope, $location, WebStorage) {
 
-			$scope.mastermind = "hello world";
-
-
 		} ])
 
 .config([ '$routeProvider', function($routeProvider) {
+
+	// SINGLEPLAYER
+	$routeProvider.when('/singleplayer', {
+		templateUrl : 'partials/singleplayer.html',
+		controller : 'SingleplayerController'
+	})
 
 	// DEFAULT
 	$routeProvider.otherwise({
