@@ -41,7 +41,6 @@
 
 
 	<build>
-		<sourceDirectory>src</sourceDirectory>
 		<plugins>
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>

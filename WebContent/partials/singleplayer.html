@@ -1,1 +1,22 @@
-<h1>single player ok</h1>
+<style type="text/css">
+	table{border-spacing: 5px; border-collapse: separate;}
+</style>
+
+<div class="row">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<center>
+			<table id="tblOptions" cellspacing="5px">
+				<tr ng-repeat="color in colors">
+					<td><button type="button" class="{{color.blue}}" style="height: 30px; width: 50px;" ng-click="infoColorActual(color.blue)"></button></td>
+					<td><button type="button" class="{{color.green}}" style="height: 30px; width: 50px;" ng-click="infoColorActual(color.green)"></button></td>
+					<td><button type="button" class="{{color.yellow}}" style="height: 30px; width: 50px;" ng-click="infoColorActual(color.yellow)"></button></td>
+					<td><button type="button" class="{{color.gray}}" style="height: 30px; width: 50px;" ng-click="infoColorActual(color.gray)"></button></td>
+					<td><button type="button" class="{{color.red}}" style="height: 30px; width: 50px;" ng-click="infoColorActual(color.red)"></button></td>
+					<td><button type="button" class="{{color.brow}}" style="height: 30px; width: 50px;" ng-click="infoColorActual(color.brow)"></button></td>
+					<td><button type="button" class="{{color.orange}}" style="height: 30px; width: 50px;" ng-click="infoColorActual(color.orange)"></button></td>
+					<td><button type="button" class="{{color.pink}}" style="height: 30px; width: 50px;" ng-click="infoColorActual(color.pink)"></button></td>
+				</tr>
+			</table>
+		</center>
+	</div>
+</div>
