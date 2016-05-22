@@ -2,8 +2,8 @@ package com.nogluten.mastermind.game.singleplayer;
 
 import com.nogluten.mastermind.game.Game;
 import com.nogluten.mastermind.game.GameMode;
-import com.nogluten.mastermind.game.GameStatus;
 import com.nogluten.mastermind.player.Player;
+import com.nogluten.mastermind.tip.Tip;
 
 public class GameSinglePlayer implements Game {
 	
@@ -13,7 +13,11 @@ public class GameSinglePlayer implements Game {
 
 	private GameMode mode;
 	
-	private GameSinglePlayerStatus gameStatus;
+	private Integer numberMoves = 0;
+	
+	private GameSinglePlayerStatus gameSinglePlayerStatus;
+	
+	private Tip tip;
 
 	public GameSinglePlayer(Player player) {
 		this.player = player;
@@ -35,12 +39,28 @@ public class GameSinglePlayer implements Game {
 		return player;
 	}
 
-	public GameStatus getGameStatus() {
-		return this.gameStatus;
+	public GameSinglePlayerStatus getGameSinglePlayerStatus() {
+		return gameSinglePlayerStatus;
+	}
+
+	public void setGameSinglePlayerStatus(GameSinglePlayerStatus gameSinglePlayerStatus) {
+		this.gameSinglePlayerStatus = gameSinglePlayerStatus;
 	}
 	
-	public void setGameStatus(GameSinglePlayerStatus gameStatus) {
-		this.gameStatus = gameStatus;
+	public void addOneMove(){
+		numberMoves++;
+	}
+	
+	public Integer getNumberMoves() {
+		return numberMoves;
+	}
+
+	public Tip getTip() {
+		return tip;
+	}
+
+	public void setTip(Tip tip) {
+		this.tip = tip;
 	}
 
 }

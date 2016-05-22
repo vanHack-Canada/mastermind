@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.nogluten.mastermind.game.Game;
-import com.nogluten.mastermind.game.GameStatus;
 import com.nogluten.mastermind.player.Player;
 
 public class GameManagementMultiPlayer {
@@ -31,13 +30,13 @@ public class GameManagementMultiPlayer {
 			GameMultiPlayer game = new GameMultiPlayer();
 			game.addPlayerOne(player);
 			player.setGame(game);
-			game.setGameStatus(GameMultiPlayerStatus.WAITING_ANOTHER_PLAYER);
+			game.setGameMultiPlayerStatus(GameMultiPlayerStatus.WAITING_ANOTHER_PLAYER);
 			gamesMultiPlayerWaitingAnotherPlayer.add(game); 
 		}else{
 			GameMultiPlayer game = gamesMultiPlayerWaitingAnotherPlayer.get(0);
 			game.addPlayerTwo(player);
 			player.setGame(game);
-			game.setGameStatus(GameMultiPlayerStatus.PLAYER_ONE_PLAYING);
+			game.setGameMultiPlayerStatus(GameMultiPlayerStatus.PLAYER_ONE_PLAYING);
 			GAMES_CACHE.put(game.getId(), game);
 			gamesMultiPlayerWaitingAnotherPlayer.remove(0);
 		}

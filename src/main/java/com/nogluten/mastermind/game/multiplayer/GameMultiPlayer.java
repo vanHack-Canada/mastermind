@@ -15,7 +15,7 @@ public class GameMultiPlayer implements Game {
 	
 	private GameMode mode;
 	
-	private GameMultiPlayerStatus gameStatus;
+	private GameMultiPlayerStatus gameMultiPlayerStatus;
 	
 	public GameMultiPlayer() {
 		this.id = System.currentTimeMillis();
@@ -47,13 +47,12 @@ public class GameMultiPlayer implements Game {
 	public Player getPlayerTwo() {
 		return playerTwo;
 	}
-
-	@Override
-	public GameStatus getGameStatus() {
-		return this.gameStatus;
+	
+	public GameMultiPlayerStatus getGameMultiPlayerStatus() {
+		return gameMultiPlayerStatus;
 	}
-
-	public void setGameStatus(GameMultiPlayerStatus gameStatus) {
-		this.gameStatus = gameStatus;
+	
+	public void setGameMultiPlayerStatus(GameMultiPlayerStatus gameMultiPlayerStatus) {
+		this.gameMultiPlayerStatus = gameMultiPlayerStatus;
 	}
 }

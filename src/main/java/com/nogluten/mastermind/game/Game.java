@@ -5,7 +5,5 @@ public interface Game {
 	public Long getId();
 	
 	public GameMode getMode();
-	
-	public GameStatus getGameStatus();
 
 }

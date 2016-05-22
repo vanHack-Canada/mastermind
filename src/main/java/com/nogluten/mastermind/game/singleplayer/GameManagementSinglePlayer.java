@@ -24,7 +24,7 @@ public class GameManagementSinglePlayer {
 	public void createNewGame(Player player) {
 		GameSinglePlayer game = new GameSinglePlayer(player);
 		player.setGame(game);
-		game.setGameStatus(GameSinglePlayerStatus.PLAYING);
+		game.setGameSinglePlayerStatus(GameSinglePlayerStatus.PLAYING);
 		GAMES_CACHE.put(game.getId(), game);
 	}
 
