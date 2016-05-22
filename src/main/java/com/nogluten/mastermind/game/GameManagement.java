@@ -1,5 +1,6 @@
 package com.nogluten.mastermind.game;
 
+import com.nogluten.mastermind.color.COLORS;
 import com.nogluten.mastermind.game.multiplayer.GameManagementMultiPlayer;
 import com.nogluten.mastermind.game.singleplayer.GameManagementSinglePlayer;
 import com.nogluten.mastermind.player.Player;
@@ -31,12 +32,25 @@ public class GameManagement {
 		 gameManagementSinglePlayer = GameManagementSinglePlayer.getInstance();
 	}
 
-	public synchronized void createNewGame(Player player, GameMode gameMode) {
+	public synchronized String createNewGame(Player player, GameMode gameMode) {
 		if(gameMode.equals(GameMode.SINGLE_PLAYER)){
-			gameManagementSinglePlayer.createNewGame(player);
+			return gameManagementSinglePlayer.createNewGame(player);
 		}else if(gameMode.equals(GameMode.MULTI_PLAYER)){
 			gameManagementMultiPlayer.createNewGame(player);
+			return null;
 		}
+		return null;
+	}
+	
+	public String executeGuess(COLORS[] guess, Player player){
+		try{
+			if(player.getGame().getMode().equals(GameMode.SINGLE_PLAYER)){
+				return gameManagementSinglePlayer.executeGuess(guess, player);
+			}
+		}catch(Exception e){
+			System.err.println(e.getMessage());
+		}
+		return null;
 	}
 
 }

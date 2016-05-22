@@ -12,7 +12,7 @@ public class GameManagementMultiPlayer {
 
 	 private static GameManagementMultiPlayer instance;
 	 
-	 private static final Map<Long, Game> GAMES_CACHE = new HashMap<Long, Game>();
+	 private static final Map<Long, Game> GAMES_CACHE = new HashMap<>();
 	 
    	 private static final List<GameMultiPlayer> gamesMultiPlayerWaitingAnotherPlayer = new ArrayList<>();
 	 
@@ -41,4 +41,5 @@ public class GameManagementMultiPlayer {
 			gamesMultiPlayerWaitingAnotherPlayer.remove(0);
 		}
 	}
+
 }

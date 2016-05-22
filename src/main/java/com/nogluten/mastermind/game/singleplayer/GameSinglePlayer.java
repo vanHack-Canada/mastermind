@@ -13,7 +13,7 @@ public class GameSinglePlayer implements Game {
 
 	private GameMode mode;
 	
-	private Integer numberMoves = 0;
+	private int numberMoves = 0;
 	
 	private GameSinglePlayerStatus gameSinglePlayerStatus;
 	
@@ -51,7 +51,7 @@ public class GameSinglePlayer implements Game {
 		numberMoves++;
 	}
 	
-	public Integer getNumberMoves() {
+	public int getNumberMoves() {
 		return numberMoves;
 	}
 

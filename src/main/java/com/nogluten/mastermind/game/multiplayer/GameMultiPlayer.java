@@ -2,8 +2,8 @@ package com.nogluten.mastermind.game.multiplayer;
 
 import com.nogluten.mastermind.game.Game;
 import com.nogluten.mastermind.game.GameMode;
-import com.nogluten.mastermind.game.GameStatus;
 import com.nogluten.mastermind.player.Player;
+import com.nogluten.mastermind.tip.Tip;
 
 public class GameMultiPlayer implements Game {
 
@@ -13,9 +13,17 @@ public class GameMultiPlayer implements Game {
 	
 	private Player playerTwo;
 	
+	private int numberMovesPlayerOne = 0;
+	
+	private int numberMovesPlayerTwo = 0;
+	
 	private GameMode mode;
 	
 	private GameMultiPlayerStatus gameMultiPlayerStatus;
+	
+	private Tip tipPlayerOne;
+	
+	private Tip tipPlayerTwo;
 	
 	public GameMultiPlayer() {
 		this.id = System.currentTimeMillis();
@@ -55,4 +63,37 @@ public class GameMultiPlayer implements Game {
 	public void setGameMultiPlayerStatus(GameMultiPlayerStatus gameMultiPlayerStatus) {
 		this.gameMultiPlayerStatus = gameMultiPlayerStatus;
 	}
+	
+	public void addMovePlayerOne(){
+		 numberMovesPlayerOne++;
+	}
+	
+	public void addMovePlayerTwo(){
+		 numberMovesPlayerTwo++;
+	}
+	
+	public int getNumberMovesPlayerOne() {
+		return numberMovesPlayerOne;
+	}
+	
+	public int getNumberMovesPlayerTwo() {
+		return numberMovesPlayerTwo;
+	}
+
+	public Tip getTipPlayerOne() {
+		return tipPlayerOne;
+	}
+
+	public void setTipPlayerOne(Tip tipPlayerOne) {
+		this.tipPlayerOne = tipPlayerOne;
+	}
+
+	public Tip getTipPlayerTwo() {
+		return tipPlayerTwo;
+	}
+
+	public void setTipPlayerTwo(Tip tipPlayerTwo) {
+		this.tipPlayerTwo = tipPlayerTwo;
+	}
+	
 }

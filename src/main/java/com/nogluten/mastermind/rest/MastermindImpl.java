@@ -33,9 +33,8 @@ public class MastermindImpl {
 	public Response initGame(@PathParam("guess") String guess){
 		JsonConverterReceive jsonConverterReceive = new JsonConverterReceive(guess);
 		Player player = PlayerManagement.getInstance().createNewUser(jsonConverterReceive.getSessionId());
-		GameManagement.getInstance().createNewGame(player, jsonConverterReceive.getGameMode());
-		//return Response.status(Response.Status.OK).entity(createJsonResponse(user)).build();
-		return null;
+		String jsonResponse = GameManagement.getInstance().createNewGame(player, jsonConverterReceive.getGameMode());
+		return Response.status(Response.Status.OK).entity(jsonResponse).build();
 	}
 	
 	@POST
@@ -44,7 +43,9 @@ public class MastermindImpl {
 	@Consumes
     public Response executeGuess(@PathParam("guess") String guess){
 		JsonConverterReceive jsonConverterReceive = new JsonConverterReceive(guess);
-		return null;
+		Player player = PlayerManagement.getInstance().getUser(jsonConverterReceive.getSessionId());
+		String jsonResponse = GameManagement.getInstance().executeGuess(jsonConverterReceive.getGuess(), player);
+		return Response.status(Response.Status.OK).entity(jsonResponse).build();
 	}
 
 }
