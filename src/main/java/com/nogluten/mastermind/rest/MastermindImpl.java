@@ -7,6 +7,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.google.gson.Gson;
+import com.nogluten.mastermind.user.User;
+import com.nogluten.mastermind.user.UserManagement;
 
 @Path("/mastermind")
 public class MastermindImpl {
@@ -15,10 +17,23 @@ public class MastermindImpl {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response helloword() {
 		final Gson gson = new Gson();
-		final Teste teste = new Teste();
-		teste.setHello("hello world");
-		final String json = gson.toJson(teste);
+		final String json = gson.toJson("hello Word");
 		return Response.status(Response.Status.OK).entity(json).build();
 	}
-
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response initGameSingle(){
+		User user = UserManagement.getInstance().createNewUser();
+		return Response.status(Response.Status.OK).entity(createJsonResponse(user)).build();
+	}
+	
+	private String createJsonResponse(User user){
+		final Gson gson = new Gson();
+		final UserResponse userResponse = new UserResponse();
+		userResponse.setId(user.getId());
+		final String json = gson.toJson(userResponse);
+		return json;
+	}
+	
 }
