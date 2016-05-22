@@ -26,11 +26,11 @@ public class PlayerManagement {
 		return user;
 	}
 	
-	public synchronized Player getUser(final Long id){
-		return USER_CACHE.get(id);
+	public synchronized Player getUser(String sessionId){
+		return USER_CACHE.get(sessionId);
 	}
 	
-	public synchronized void removeUser(Long id){
-		USER_CACHE.remove(id);
+	public synchronized void removeUser(String sessionId){
+		USER_CACHE.remove(sessionId);
 	}
 }

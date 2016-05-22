@@ -10,6 +10,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.google.gson.Gson;
+import com.nogluten.mastermind.game.GameManagement;
 import com.nogluten.mastermind.json.JsonConverterReceive;
 import com.nogluten.mastermind.player.Player;
 import com.nogluten.mastermind.player.PlayerManagement;
@@ -31,8 +32,8 @@ public class MastermindImpl {
 	@Consumes
 	public Response initGame(@PathParam("guess") String guess){
 		JsonConverterReceive jsonConverterReceive = new JsonConverterReceive(guess);
-		Player user = PlayerManagement.getInstance().createNewUser(jsonConverterReceive.getSessionId());
-		
+		Player player = PlayerManagement.getInstance().createNewUser(jsonConverterReceive.getSessionId());
+		GameManagement.getInstance().createNewGame(player, jsonConverterReceive.getGameMode());
 		//return Response.status(Response.Status.OK).entity(createJsonResponse(user)).build();
 		return null;
 	}
