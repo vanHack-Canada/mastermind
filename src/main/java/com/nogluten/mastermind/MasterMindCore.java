@@ -9,7 +9,7 @@ import com.nogluten.mastermind.tip.Tip;
 
 public class MasterMindCore {
 
-	public COLORS[] createRandomCode(){
+	public static COLORS[] createRandomCode(){
 		COLORS[] code = new COLORS[RulesConstants.MAX_NUMBER_POSITION];
 		Random random = new Random();
 		for(int i =0; i < RulesConstants.MAX_NUMBER_POSITION; i++){

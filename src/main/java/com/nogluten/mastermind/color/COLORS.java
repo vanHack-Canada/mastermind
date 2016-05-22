@@ -9,6 +9,6 @@ public enum COLORS {
 	RED,
 	BROWN,
 	ORANGE,
-	PINK
+	PINK;
 
 }
